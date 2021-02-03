@@ -2,6 +2,10 @@
 # Easy Note
 ## Description
 Note taker using an Express.js backend and JSON files to save and retrieve notes.
+> - Deployed
+> - [Trello](https://trello.com/invite/b/dypbmI5R/21773ad2d2e16d5f70995b7971df19a0/full-stack-bootcamp)
+> - [GitHub](https://github.com/JayArghArgh/easy-note)
+
 ## Table of Contents
 > - [Description](#Description)
 > - [Table of Contents](#Table-of-Contents)
