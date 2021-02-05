@@ -38,4 +38,4 @@ app.post('/api/notes', (req, res) => {
 app.use(express.static(path.join(__dirname, 'public/')))
 
 // Listener
-app.listen(PORT, () => console.log(`I am here in port ${PORT}`));
+app.listen(process.env.PORT || 5000, () => console.log('The server is running my dude.'));
