@@ -1,9 +1,15 @@
+// Load up our plugins.
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const uniqid = require('uniqid');
+
+// Load up our required assets.
 const exportFile = './db/db.json';
 let notesArray = require('./db/db.json').notes;
 
+
+// Setup the server.
 const app = express();
 const PORT = 3000;
 
@@ -28,6 +34,7 @@ app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public/notes.
 app.get('/api/notes', (req, res) => res.json(notesArray));
 app.post('/api/notes', (req, res) => {
 	const newNote = req.body;
+	newNote.id = uniqid();
 	console.log(newNote);
 	notesArray.push(newNote);
 	exportDbToFile(exportFile, notesArray);
@@ -38,4 +45,4 @@ app.post('/api/notes', (req, res) => {
 app.use(express.static(path.join(__dirname, 'public/')))
 
 // Listener
-app.listen(process.env.PORT || 5000, () => console.log('The server is running my dude.'));
+app.listen(process.env.PORT || 3000, () => console.log('The server is running my dude.'));

@@ -26,29 +26,29 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () =>
-  fetch('/api/notes', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+    fetch('/api/notes', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
 const saveNote = (note) =>
-  fetch('/api/notes', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(note),
-  });
+    fetch('/api/notes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(note),
+    });
 
 const deleteNote = (id) =>
-  fetch(`/api/notes/${id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+    fetch(`/api/notes/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
@@ -65,17 +65,7 @@ const renderActiveNote = () => {
 };
 
 const handleNoteSave = () => {
-  // Add in a basic numerical id.
-  const lastList = document.querySelector(".list-container .list-group > li:last-child");
-  let lastListId = JSON.parse(lastList.getAttribute('data-note')).id;
-  console.log(lastListId);
-  if (lastListId.type === "undefined") {
-    lastListId = 999;
-  }
-
-  // Ensure the id is passed to the object creation.
   const newNote = {
-    id: lastListId + 1,
     title: noteTitle.value,
     text: noteText.value,
   };
@@ -147,11 +137,11 @@ const renderNoteList = async (notes) => {
     if (delBtn) {
       const delBtnEl = document.createElement('i');
       delBtnEl.classList.add(
-        'fas',
-        'fa-trash-alt',
-        'float-right',
-        'text-danger',
-        'delete-note'
+          'fas',
+          'fa-trash-alt',
+          'float-right',
+          'text-danger',
+          'delete-note'
       );
       delBtnEl.addEventListener('click', handleNoteDelete);
 
