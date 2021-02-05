@@ -20,7 +20,7 @@ app.post('/api/notes', (req, res) => {
 	const newNote = req.body;
 	console.log(newNote);
 	notesArray.push(newNote);
-	console.log(notesArray);
+	res.json(newNote);
 });
 
 // Middleware

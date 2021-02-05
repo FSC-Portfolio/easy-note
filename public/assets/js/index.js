@@ -65,14 +65,22 @@ const renderActiveNote = () => {
 };
 
 const handleNoteSave = () => {
+  // Add in a basic numerical id.
   const lastList = document.querySelector(".list-container .list-group > li:last-child");
-  const lastListId = JSON.parse(lastList.getAttribute('data-note')).id;
+  let lastListId = JSON.parse(lastList.getAttribute('data-note')).id;
   console.log(lastListId);
+  if (lastListId.type === "undefined") {
+    lastListId = 999;
+  }
+
+  // Ensure the id is passed to the object creation.
   const newNote = {
+    id: lastListId + 1,
     title: noteTitle.value,
     text: noteText.value,
   };
   saveNote(newNote).then(() => {
+    console.log("hello");
     getAndRenderNotes();
     renderActiveNote();
   });
