@@ -2,8 +2,8 @@
 # Easy Note
 ## Description
 Note taker using an Express.js backend and JSON files to save and retrieve notes.
-> - Deployed
-> - [Trello](https://trello.com/invite/b/dypbmI5R/21773ad2d2e16d5f70995b7971df19a0/full-stack-bootcamp)
+![Screenshot of Easy Notes](screenshot.png)
+> - [Heroku](https://rocky-oasis-06805.herokuapp.com/)
 > - [GitHub](https://github.com/JayArghArgh/easy-note)
 
 ## Table of Contents
@@ -17,15 +17,15 @@ Note taker using an Express.js backend and JSON files to save and retrieve notes
 > - [Questions](#Questions)
 
 ## Installation
-na
+App is deployed via Heroku, to install locally, clone and then ```npm i```
 ## Usage
-na
+App is deployed via Heroku, to run locally, install and then ```node server.js```
 ## License
 This application is covered under The Unlicense.
 ## Contributing
 Please report any bugs you find.
 ## Tests
-na
+N/A
 ## Questions
 Please refer any questions to [![JayArghArgh](https://img.shields.io/badge/Dev-JayArghArgh-yellow)](https://github.com/JayArghArgh) via jayarghargh@gmail.com.
 
