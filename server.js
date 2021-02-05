@@ -39,6 +39,23 @@ app.post('/api/notes', (req, res) => {
 	exportDbToFile(exportFile, notesArray);
 	res.json(newNote);
 });
+app.delete('/api/notes/:id', (req, res) => {
+	const activeNote = req.params.id;
+	// See if the id exists.
+	for (let i = 0; i < notesArray.length; i++) {
+		if (activeNote === notesArray[i].id) {
+			// Remove it and return the result.
+			notesArray.splice(i, 1);
+
+			//update the database file
+			exportDbToFile(exportFile, notesArray);
+			return res.json(true);
+		}
+	}
+
+	return res.json(false);
+
+})
 
 // Middleware
 app.use(express.static(path.join(__dirname, 'public/')))
