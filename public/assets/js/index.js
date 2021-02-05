@@ -102,6 +102,11 @@ const handleNoteView = (e) => {
 
 // Sets the activeNote to and empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
+  // The read only attribute may be set, so remove it to be safe.
+  if (noteTitle.getAttribute('readonly') || noteText.getAttribute('readonly')) {
+    noteTitle.removeAttribute('readonly');
+    noteText.removeAttribute('readonly');
+  }
   activeNote = {};
   renderActiveNote();
 };
