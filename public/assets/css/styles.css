@@ -68,3 +68,7 @@ html, body {
   padding: 20px;
   cursor: pointer;
 }
+
+.bg-dark {
+  background-color: #000000 !important
+}
