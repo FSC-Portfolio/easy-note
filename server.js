@@ -35,7 +35,6 @@ app.get('/api/notes', (req, res) => res.json(notesArray));
 app.post('/api/notes', (req, res) => {
 	const newNote = req.body;
 	newNote.id = uniqid();
-	console.log(newNote);
 	notesArray.push(newNote);
 	exportDbToFile(exportFile, notesArray);
 	res.json(newNote);
