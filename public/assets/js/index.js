@@ -4,8 +4,6 @@ let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
-console.log("im here baby");
-
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
@@ -67,6 +65,9 @@ const renderActiveNote = () => {
 };
 
 const handleNoteSave = () => {
+  const lastList = document.querySelector(".list-container .list-group > li:last-child");
+  const lastListId = JSON.parse(lastList.getAttribute('data-note')).id;
+  console.log(lastListId);
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
