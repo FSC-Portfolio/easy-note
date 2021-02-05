@@ -1,9 +1,19 @@
 const express = require('express');
+const fs = require('fs');
 const path = require('path');
-let notesArray = require('./db/db.json');
+const exportFile = './db/db.json';
+let notesArray = require('./db/db.json').notes;
 
 const app = express();
 const PORT = 3000;
+
+const exportDbToFile = (file, dbArray) => {
+	// Write the db file
+	dbArray = JSON.stringify({"notes": dbArray});
+	fs.writeFile(file, dbArray, (err) =>
+		err ? console.error(err) : console.log('File exported')
+	);
+}
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -20,6 +30,7 @@ app.post('/api/notes', (req, res) => {
 	const newNote = req.body;
 	console.log(newNote);
 	notesArray.push(newNote);
+	exportDbToFile(exportFile, notesArray);
 	res.json(newNote);
 });
 
